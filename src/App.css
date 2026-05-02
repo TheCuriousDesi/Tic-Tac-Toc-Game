@@ -1,0 +1,110 @@
+body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 🌟 Background animation */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBg 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  from { transform: translate(0,0); }
+  to { transform: translate(-50px,-50px); }
+}
+
+/* 🧊 Glass container */
+.game-container {
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* 🎮 Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* 🔲 Squares */
+.square {
+  width: 110px;
+  height: 110px;
+  font-size: 2.5rem;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* ✨ Hover effect */
+.square:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+/* 💥 Click effect */
+.square:active {
+  transform: scale(0.95);
+}
+
+/* 🎯 X and O styling */
+.square {
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* 🏆 Winner text */
+h2 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #00ffd5;
+  text-shadow: 0 0 10px #00ffd5;
+}
+
+/* 🔘 Buttons */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #00ffd5, #00aaff);
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* 🔥 Button hover */
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffd5;
+}
